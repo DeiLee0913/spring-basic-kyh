@@ -1,1 +1,64 @@
-# spring-basic-kyh
+# 📘 Spring 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술📚 강의 정보
+강의명: 김영한님의 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술
+
+## 💡 학습 목표
+스프링 프레임워크의 핵심 개념 (DI, Bean 등록, 싱글톤 등) 실습
+
+객체지향 설계 원칙(SRP, DIP, OCP)을 기반으로 코드 리팩터링
+
+주문 도메인을 중심으로 계층별 구조 학습 및 테스트 작성
+
+## 🛠️ 실습 환경
+Java 17
+
+Spring Boot 3.x
+
+IntelliJ IDEA
+
+Gradle
+
+H2 Database
+
+## 📁 폴더 구조
+bash
+Copy
+Edit
+src
+├── main
+│   ├── java
+│   │   └── deki.kyh.basic
+│   │       ├── discount
+│   │       │   └── DiscountPolicy, FixDiscountPolicy, RateDiscountPolicy ...
+│   │       ├── member
+│   │       │   ├── Grade, Member, MemberRepository
+│   │       │   ├── MemberService, MemberServiceImpl
+│   │       │   └── MemoryMemberRepository
+│   │       ├── order
+│   │       │   ├── Order, OrderService, OrderServiceImpl
+│   │       │   └── OrderApp
+│   │       ├── AppConfig.java
+│   │       └── KyhBasicApplication.java
+│   └── resources
+│       ├── application.properties
+│       └── appConfig.xml
+└── test
+    └── 테스트 관련 코드
+
+## 🧠 배운 점
+AppConfig 수동 Bean 등록을 통해 객체 간 의존성을 명시적으로 제어할 수 있음을 이해
+
+할인 정책 변경 시, 기존 코드를 수정하지 않고 새로운 구현체만 등록하면 되는 구조의 장점 체감
+
+테스트 코드를 통해 싱글톤 문제 및 상태 공유 이슈를 직접 실험하며 학습🧠 배운 점
+AppConfig 수동 Bean 등록을 통해 객체 간 의존성을 명시적으로 제어할 수 있음을 이해
+
+할인 정책 변경 시, 기존 코드를 수정하지 않고 새로운 구현체만 등록하면 되는 구조의 장점 체감
+
+테스트 코드를 통해 싱글톤 문제 및 상태 공유 이슈를 직접 실험하며 학습
+
+## 📝 참고
+본 저장소는 강의 내용을 기반으로 한 개인 학습용 실습 코드입니다.
+
+소스 구조 일부는 직접 설계 및 리팩터링하여 재구성했습니다.
+
+강의 원본 자료는 인프런 강의에서 확인 가능합니다.
