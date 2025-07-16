@@ -19,30 +19,6 @@ Gradle
 
 H2 Database
 
-## 📁 폴더 구조
-bash
-Copy
-Edit
-src
-├── main
-│   ├── java
-│   │   └── deki.kyh.basic
-│   │       ├── discount
-│   │       │   └── DiscountPolicy, FixDiscountPolicy, RateDiscountPolicy ...
-│   │       ├── member
-│   │       │   ├── Grade, Member, MemberRepository
-│   │       │   ├── MemberService, MemberServiceImpl
-│   │       │   └── MemoryMemberRepository
-│   │       ├── order
-│   │       │   ├── Order, OrderService, OrderServiceImpl
-│   │       │   └── OrderApp
-│   │       ├── AppConfig.java
-│   │       └── KyhBasicApplication.java
-│   └── resources
-│       ├── application.properties
-│       └── appConfig.xml
-└── test
-    └── 테스트 관련 코드
 
 ## 🧠 배운 점
 AppConfig 수동 Bean 등록을 통해 객체 간 의존성을 명시적으로 제어할 수 있음을 이해
