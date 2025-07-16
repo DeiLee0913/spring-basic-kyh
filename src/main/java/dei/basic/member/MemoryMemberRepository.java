@@ -2,6 +2,7 @@ package dei.basic.member;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class MemoryMemberRepository implements MemberRepository{
 
@@ -13,7 +14,19 @@ public class MemoryMemberRepository implements MemberRepository{
     }
 
     @Override
+    public void saveWithEmail(Member member) {
+        store.put(member.getId(), member);
+    }
+
+    @Override
     public Member findById(Long memberId) {
         return store.get(memberId);
+    }
+
+    @Override
+    public Optional<Member> findByEmail(String email) {
+        return store.values().stream()
+                .filter(member -> email.equals(member.getEmail()))
+                .findFirst();
     }
 }

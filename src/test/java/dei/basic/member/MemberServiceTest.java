@@ -5,6 +5,10 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Optional;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+
 public class MemberServiceTest {
     MemberService memberService;
 
@@ -25,5 +29,26 @@ public class MemberServiceTest {
 
         //then
         Assertions.assertThat(member).isEqualTo(findMmember);
+    }
+
+    @Test
+    void joinWithEmail() {
+        Member member = new Member(2L, "memberB", Grade.VIP, "email@example.com");
+        memberService.join(member);
+
+        Optional<Member> findMember = memberService.findMemberByEmail("email@example.com");
+
+        Assertions.assertThat(findMember.orElseThrow()).isEqualTo(member);
+    }
+
+    @Test
+    void joinWithSameEmail() {
+        Member member1 = new Member(3L, "memberC", Grade.VIP, "email@example.com");
+        memberService.join(member1);
+
+        Member member2 = new Member(4L, "memberD", Grade.VIP, "email@example.com");
+        assertThatThrownBy(() -> memberService.joinWithEmail(member2))
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessage("Email already exists!");
     }
 }

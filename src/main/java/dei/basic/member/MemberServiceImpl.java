@@ -1,5 +1,7 @@
 package dei.basic.member;
 
+import java.util.Optional;
+
 public class MemberServiceImpl implements MemberService {
 
     private final MemberRepository memberRepository;
@@ -14,7 +16,25 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    public void joinWithEmail(Member member) {
+        validateDuplicateEmail(member.getEmail());
+        memberRepository.saveWithEmail(member);
+    }
+
+    @Override
     public Member findMember(Long memberId) {
         return memberRepository.findById(memberId);
+    }
+
+    @Override
+    public Optional<Member> findMemberByEmail(String email) {
+        return memberRepository.findByEmail(email);
+    }
+
+    public void validateDuplicateEmail(String email) {
+        if (email == null) return;
+        memberRepository.findByEmail(email).ifPresent(m -> {
+            throw new IllegalStateException("Email already exists!");
+        });
     }
 }
