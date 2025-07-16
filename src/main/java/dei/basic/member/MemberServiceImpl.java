@@ -27,14 +27,13 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Optional<Member> findMemberByEmail(String email) {
+    public Optional<Member> findMemberByEmail(Email email) {
         return memberRepository.findByEmail(email);
     }
 
-    public void validateDuplicateEmail(String email) {
-        if (email == null) return;
+    public void validateDuplicateEmail(Email email) {
         memberRepository.findByEmail(email).ifPresent(m -> {
-            throw new IllegalStateException("Email already exists!");
+            throw new IllegalArgumentException("Invalid email address!");
         });
     }
 }

@@ -5,7 +5,7 @@ public class Member {
     private Long id;
     private String name;
     private Grade grade;
-    private String email;
+    private Email email;
 
     public Long getId() {
         return id;
@@ -31,9 +31,9 @@ public class Member {
         this.grade = grade;
     }
 
-    public String getEmail() {  return email;   }
+    public Email getEmail() {  return email;   }
 
-    public void setEmail(String email) {    this.email = email; }
+    public void setEmail(Email email) {   this.email = email; }
 
     public Member(Long id, String name, Grade grade) {
         this.id = id;
@@ -41,7 +41,7 @@ public class Member {
         this.grade = grade;
     }
 
-    public Member(Long id, String name, Grade grade, String email) {
+    public Member(Long id, String name, Grade grade, Email email) {
         this.id = id;
         this.name = name;
         this.grade = grade;
